@@ -9,9 +9,9 @@ Tasker is a task manager website built using React where user can add, delete an
 
 ## Task Management
 
-1.Add new tasks with details.
-2.Delete tasks that are no longer needed.
-3.Update tasks to mark them as complete or modify their details.
+1. Add new tasks with details.
+2. Delete tasks that are no longer needed.
+3. Update tasks to mark them as complete or modify their details.
 
 ## Authentication
 
