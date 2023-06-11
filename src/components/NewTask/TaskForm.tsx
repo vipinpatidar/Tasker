@@ -1,17 +1,16 @@
 import React, { useState, useContext } from "react";
 import Section from "../UI/Section";
-
+//context
 import { TaskContext } from "../../store/taskContext";
-
+// firebase authentication
 import { auth } from "../../Firebase/Firebase";
 import { signOut } from "firebase/auth";
+
 import { useNavigate } from "react-router-dom";
 
 // styled Component
 
 import { AddForm, SignOutBtn } from "./TaskForm.styled";
-
-// import { collection, addDoc } from "firebase/firestore";
 
 const TaskForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -20,35 +19,8 @@ const TaskForm = () => {
   const taskCtx = useContext(TaskContext);
 
   const navigate = useNavigate();
-  /*
-  const submitHandler = async (event) => {
-    event.preventDefault();
 
-    if (task.trim().length > 0) {
-      try {
-        const tasksCollections = collection(db, "tasks");
-
-        const data = {
-          task,
-        };
-
-        console.log(task);
-
-        setIsLoading(true);
-        const docRef = await addDoc(tasksCollections, data);
-
-        console.log(docRef);
-
-        setIsLoading(false);
-        setTask("");
-      } catch (error) {
-        console.log(error);
-      }
-
-      // props.onEnterTask(enteredValue);
-    }
-  };
-*/
+  // Submit Form handler for adding a task
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -59,6 +31,8 @@ const TaskForm = () => {
     }, 500);
     setTask("");
   };
+
+  // firebase authentication sign out handler
 
   const singOutUser = () => {
     signOut(auth)

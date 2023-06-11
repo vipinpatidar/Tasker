@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+
+// firebase auth imports
+
 import { auth } from "../../Firebase/Firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+
 import { useNavigate } from "react-router-dom";
 
 // styled Component
-
 import { LoginForm, LoginErr } from "./Login.styled";
 
 const Login = () => {
@@ -17,6 +20,8 @@ const Login = () => {
 
   const [error, setError] = useState(null);
 
+  // form Input change event handler
+
   const loginDataChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -27,6 +32,8 @@ const Login = () => {
       };
     });
   };
+
+  // submit form event and signIn with firebase auth and redirect to tasks page
 
   const loginSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

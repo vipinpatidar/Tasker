@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
+//icons
 import { MdDelete } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
-
+//context
 import { TaskContext } from "../../store/taskContext";
+//Model
 import EditModel from "../Model/EditModel";
 
 // styled Component
@@ -20,16 +22,20 @@ const TaskItem = (props: TaskItemProps) => {
 
   const taskCtx = useContext(TaskContext);
 
+  // Update task using context API
+
   const updateHandler = (id: string, task: string) => {
     taskCtx.dispatch({ type: "UPDATE-TASK", value: { id, task } });
     setIsOpen(false);
   };
 
+  // Open Modal Handler
   const openModelHandler = (id: string, task: string) => {
     setIsOpen(true);
     setTaskUpdateValue({ id, task });
   };
 
+  // delete task handler
   const deleteHandler = (id: string) => {
     taskCtx.dispatch({ type: "DELETE-TASK", value: id });
   };

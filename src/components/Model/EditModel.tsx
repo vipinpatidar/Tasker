@@ -16,10 +16,14 @@ const EditModel = ({
 }: EditModelProps) => {
   const [oldTask, setOldTask] = useState(inputTaskValue.task);
 
+  // sending update data
+
   const addUpdateTask = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     updateTask(inputTaskValue.id, oldTask);
   };
+
+  // removing Model Button handler
 
   const removeModel = () => {
     setIsOpen(false);

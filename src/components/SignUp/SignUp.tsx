@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+
+//firebase authentication
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../Firebase/Firebase";
+
 import { useNavigate } from "react-router-dom";
 
 //Styled components
@@ -19,6 +22,7 @@ const SignUp = ({ setIsLogin }: SignInProps) => {
 
   const navigate = useNavigate();
 
+  // sign form input change event handler
   const signUpDataChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -29,6 +33,8 @@ const SignUp = ({ setIsLogin }: SignInProps) => {
       };
     });
   };
+
+  // submit form and Sign Up event handler using firebase authentication
 
   const signUpSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
